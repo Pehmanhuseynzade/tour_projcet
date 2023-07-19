@@ -32,3 +32,104 @@
         margin-top: 10px;
     }
 }
+
+.tour-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .my-card {
+        width: 370px;
+        height: 430px;
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        border-radius: 10px;
+
+        img {
+            position: relative;
+            width: 370px;
+            height: 250px;
+            background-size: cover;
+
+            // Apply the hover effect to the card images
+            &:hover {
+                opacity: 0.8; // You can adjust the opacity value to your preference
+                transition: opacity 0.3s ease;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(2px);
+            // background-color: rgba(255, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            .overlay {
+                opacity: 1;
+            }
+        }
+
+        .sale {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px;
+
+            h2 {
+                padding: 5px;
+            }
+
+            .blue {
+                color: rgb(9, 90, 117);
+            }
+        }
+
+        .statistic-icon {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            font-size: 19px;
+
+            i {
+                color: gray;
+                font-size: 19px;
+            }
+
+            p {
+                padding-left: 2px;
+                color: gray;
+            }
+            button{
+                width: 120px;
+                height: 35px;
+                border-radius: 20px;
+                border: none;
+                background-color: rgb(6, 78, 103);
+                color: white;
+                transition: .5s;
+                &:hover{
+                    cursor: pointer;
+                    background-color: rgb(28, 111, 138);
+                }
+            }
+        }
+
+        .desc {
+            padding-left: 12px;
+        }
+    }
+}
