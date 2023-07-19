@@ -1,0 +1,34 @@
+.countries-tours {
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 95vh;
+        background-size: cover;
+        filter: brightness(0.3);
+    }
+
+    h1 {
+        font-size: 38px;
+        position: absolute;
+        bottom: 360px;
+        left: 680px;
+        color: white;
+    }
+
+}
+
+.sentences-tours {
+    text-align: center;
+
+    h1 {
+        font-size: 40px;
+        padding-top: 20px;
+        color: rgb(24, 105, 132);
+    }
+
+    p {
+        color: gray;
+        margin-top: 10px;
+    }
+}

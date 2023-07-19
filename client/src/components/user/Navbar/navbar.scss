@@ -27,7 +27,7 @@
     }
     footer {
         padding: 50px;
-        background-color: #0e0902;
+        background-color: #242625;
         display: flex;
         justify-content: space-evenly;
     
@@ -73,6 +73,7 @@
         }
     
         .foot-div-2 {
+          padding-top: 30px;
           .nav-foot {
             display: flex;
             gap: 20px;
@@ -119,7 +120,33 @@
               }
             }
           }
-        }
+          }
+          .foot-div-3{
+            .mainfoot-img{
+              padding-top: 10px;
+              .footimg-1{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                img{
+                  width: 70px;
+                  height: 70px;
+                }
+              }
+              .footimg-2{
+                padding-top: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                img{
+                  width: 70px;
+                  height: 70px;
+                }
+              }
+            }
+          }
     
         // @media screen and (max-width: 640px) {
         //   flex-direction: column;

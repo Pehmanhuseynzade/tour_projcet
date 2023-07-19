@@ -8,12 +8,12 @@ function Navbar() {
       <img src="https://demo.mekshq.com/trawell/wp-content/themes/trawell/assets/img/trawell_logo_mini.png" alt="navimage" />
       </div>
       <div className='nav-links'>
-        <Link><p>Home</p></Link>
-        <Link><p>About</p></Link>
-        <Link><p>Countries</p></Link>
-        <Link><p>Tours</p></Link>
-        <Link><p>Contact</p></Link>
-        <Link><p>Login</p></Link>
+        <Link to=''><p>Home</p></Link>
+        <Link to='about'><p>About</p></Link>
+        <Link to='countries'><p>Countries</p></Link>
+        <Link to='tours'><p>Tours</p></Link>
+        <Link to='contact'><p>Contact</p></Link>
+        <Link to='register'><p>Register</p></Link>
       </div>
     </header>
   )
