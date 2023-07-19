@@ -1,0 +1,187 @@
+main {
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 95vh;
+        background-size: cover;
+        filter: brightness(0.3);
+    }
+
+    h1 {
+        font-size: 38px;
+        position: absolute;
+        bottom: 400px;
+        left: 580px;
+        color: white;
+    }
+
+    p {
+        position: absolute;
+        text-align: center;
+        color: white;
+        width: 500px;
+        bottom: 320px;
+        left: 530px;
+        font-size: 17px;
+    }
+}
+
+.data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+
+    .info-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+
+        h1 {
+            font-size: 42px;
+            color: rgb(24, 105, 132);
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+.iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    iframe {
+     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+}
+
+.sentences {
+    text-align: center;
+
+    h1 {
+        font-size: 40px;
+        padding-top: 20px;
+        color: rgb(24, 105, 132);
+    }
+
+    p {
+        color: gray;
+        margin-top: 10px;
+    }
+}
+
+.line-p {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    color: rgb(24, 105, 132);
+}
+
+.my-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 20px;
+
+    .my-card {
+        width: 400px;
+        height: 430px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        img {
+            width: 400px;
+            height: 270px;
+            background-size: cover;
+        }
+
+        h2 {
+            padding: 5px;
+        }
+
+        p {
+            padding-left: 2px;
+            color: gray;
+        }
+    }
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 20px;
+  
+    .card {
+      position: relative;
+      width: 400px;
+      height: 350px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  
+      img {
+        width: 400px;
+        height: 350px;
+        background-size: cover;
+        filter: brightness(0.6);
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(2px);
+        // background-color: rgba(255, 0, 0, 0.7);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        .pop-tour{
+            position: absolute;
+            top: 40px;
+            // padding-left: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 110px;
+          }
+          p{
+            position: absolute;
+            color: white;
+            padding: 26px;
+            top: 60px;
+          }
+      }
+      .par-cash{
+        display: flex;
+        gap: 30px;
+        position: absolute;
+        bottom: 30px;
+        left: 28px;
+        
+        i{
+            font-size: 22px;
+            color: white;
+        }
+      }
+  
+      &:hover {
+        cursor: pointer;
+  
+        .overlay {
+          opacity: 1;
+        }
+      }
+    }
+  }
