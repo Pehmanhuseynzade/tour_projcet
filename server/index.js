@@ -10,86 +10,21 @@ app.use(cors());
 app.use(bodyParser.json());
 dotenv.config();
 
+const use_router = require("./routes/usefulinfo.routes")
+const countries_router = require("./routes/countries.routes")
+const poptour_router = require("./routes/poptour.routes")
+const tour_router = require("./routes/tour.routes")
+
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-
-// const blogSchema = new mongoose.Schema({
-//   name: String,
-//   price: String,
-//   desc: String,
-//   imageURL: String,
-// });
-
-// const blogModel = mongoose.model("Blog", blogSchema);
+app.use(`/api/useful`, use_router)
+app.use(`/api/countries`, countries_router)
+app.use(`/api/poptour`, poptour_router)
+app.use(`/api/tour`, tour_router)
 
 
-// //POST
-
-// app.post(`/api/blog`,async(req,res)=>{
-//      const{name,price,desc,imageURL} = req.body
-//      const postModel = new blogModel({
-//           name:name,
-//           price:price,
-//           desc:desc,
-//           imageURL:imageURL,
-//      })
-//      await postModel.save()
-//      res.status(201).send({
-//           message:"Posted succesfully!",
-//           payload:postModel
-//      })
-// })
-
-// //GET
-
-// app.get(`/api/blog`,async(req,res)=>{
-//      const{name}=req.query
-//      const getModel = await blogModel.find()
-//      if(!name){
-//           res.status(200).send(getModel)
-//      }
-//      else{
-//           const searchedGet = getModel.filter((x)=>
-//                x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
-//           )
-//           res.status(200).send(searchedGet)
-//      }
-// })
-
-
-// //GET ID
-
-// app.get(`/api/blog/:id`,async(req,res)=>{
-//      const {id} = req.params
-//      const newID = await blogModel.findById(id)
-//      res.status(200).send(newID)
-// })
-
-// //DELETE
-
-// app.delete(`/api/blog/:id`,async(req,res)=>{
-//      const id = req.params.id
-//      const newDelete = await blogModel.findByIdAndDelete(id)
-//      res.status(202).send(newDelete)
-// })
-
-// //PUT
-
-// app.put(`/api/blog/:id`,async(req,res)=>{
-//      const id = req.params.id
-//      const{name,price,desc,imageURL} = req.body
-//      const putModel = {
-//           name:name,
-//           price:price,
-//           desc:desc,
-//           imageURL:imageURL,
-//      }
-//      await blogModel.findByIdAndUpdate(id,putModel)
-//      res.status(200).send({
-//           message:`${putModel.name} updated succesfully!`
-//      })
-// })
 
 PORT = process.env.PORT;
 app.listen(PORT, () => {

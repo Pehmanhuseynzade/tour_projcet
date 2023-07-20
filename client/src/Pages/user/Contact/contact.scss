@@ -47,12 +47,15 @@
         h1{
             font-family: sans-serif;
         }
-        p{
+        .prg1{
+            padding-top: 6px;
             color: gray;
             font-family: sans-serif;
         }
         .prg{
-            padding-bottom: 30px;
+            padding-bottom: 20px;
+            font-family: sans-serif;
+            color: gray;
         }
         form{
             display: flex;
@@ -63,9 +66,22 @@
                 height: 50px;
                 line-height: 1.5;
             }
+            button{
+                width: 140px;
+                height: 40px;
+                border: none;
+                color: white;
+                background-color: rgb(7, 99, 130);
+                transition: .5s;
+                &:hover{
+                    background-color: rgba(7, 99, 130, 0.886);
+                    cursor: pointer;
+                }
+            }
         }
     }
     .iframe-part{
+        padding-top: 35px;
         .london-baku{
             display: flex;
             justify-content: center;

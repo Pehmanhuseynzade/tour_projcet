@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <header>
       <div>
-      <img src="https://demo.mekshq.com/trawell/wp-content/themes/trawell/assets/img/trawell_logo_mini.png" alt="navimage" />
+      <Link><img src="https://demo.mekshq.com/trawell/wp-content/themes/trawell/assets/img/trawell_logo_mini.png" alt="navimage" /></Link>
       </div>
       <div className='nav-links'>
         <Link to=''><p>Home</p></Link>

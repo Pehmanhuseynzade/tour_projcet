@@ -21,13 +21,13 @@ function Contact() {
             <div className='contact-iframe'>
                 <div className='contact-part'>
                 <h1>Contact Us</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus</p>
+                <p className='prg1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus</p>
                 <p className='prg'>vitae condimentum egestas, libero dolor auctor.</p>
                 <form>
-                    <input style={{display:"block",flexDirection:"column"}} type="text" />
-                    <input style={{display:"block",flexDirection:"column"}} type="text" />
-                    <input style={{display:"block",flexDirection:"column"}} type="text" />
-                    <textarea style={{display:"block",flexDirection:"column"}} name="message" cols="30" rows="10"></textarea>
+                    <input placeholder='Name' style={{color:"gray",display:"block",flexDirection:"column",paddingLeft:"10px"}} type="text" />
+                    <input placeholder='Surname' style={{color:"gray",display:"block",flexDirection:"column",paddingLeft:"10px"}} type="text" />
+                    <input placeholder='Email' style={{color:"gray",display:"block",flexDirection:"column",paddingLeft:"10px"}} type="email" />
+                    <textarea placeholder='Comment' style={{color:"gray",fontSize:"15px",display:"block",flexDirection:"column",paddingLeft:"10px",paddingTop:"10px"}} name="message" cols="30" rows="10"></textarea>
                     <button type='submit'>Submit</button>
                 </form>
                 </div>

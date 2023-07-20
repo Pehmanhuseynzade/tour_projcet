@@ -67,7 +67,12 @@ function Home() {
         </div>
       </div>
 
-      <div className='data'>
+
+      <div className='line-p'>WHERE I'VE BEEN</div>
+      <div className='iframe'>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d26728459.75101552!2d27.561881!3d35.137876!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2sus!4v1689767590395!5m2!1str!2sus" style={{ width: 1100, height: 600, border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      {/* <div className='data'>
         <div className='info-div'>
           <div>
             <h1 style={{ textAlign: "center" }}>6</h1>
@@ -86,13 +91,7 @@ function Home() {
             <p>Days traveling</p>
           </div>
         </div>
-      </div>
-
-      <div className='line-p'>WHERE I'VE BEEN</div>
-      <div className='iframe'>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d26728459.75101552!2d27.561881!3d35.137876!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2sus!4v1689767590395!5m2!1str!2sus" style={{ width: 1100, height: 600, border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-
+      </div> */}
       <div className="sentences">
         <h1>Useful Information</h1>
         <div className="line"></div>
