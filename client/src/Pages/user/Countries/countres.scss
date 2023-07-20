@@ -1,97 +1,103 @@
 .countries-count {
-    position: relative;
+  position: relative;
   overflow: hidden;
-    img {
-      padding-top: 90px;
-        width: 100%;
-        height: 95vh;
-        background-size: cover;
-        filter: brightness(0.6);
-        transform-origin: center; // Set the origin of the scaling effect to the center of the image
-        animation: scaleAnimation 9s infinite alternate; // Apply the animation to the image
-    }
 
-    h1 {
-        font-size: 38px;
-        position: absolute;
-        bottom: 313px;
-        left: 650px;
-        color: white;
-    }
+  img {
+    padding-top: 90px;
+    width: 100%;
+    height: 95vh;
+    background-size: cover;
+    filter: brightness(0.6);
+    transform-origin: center; // Set the origin of the scaling effect to the center of the image
+    animation: scaleAnimation 9s infinite alternate; // Apply the animation to the image
+  }
+
+  h1 {
+    font-size: 38px;
+    position: absolute;
+    bottom: 313px;
+    left: 650px;
+    color: white;
+  }
 
 }
+
 @keyframes scaleAnimation {
   0% {
-      transform: scale(1); // Start with the original size
+    transform: scale(1); // Start with the original size
   }
+
   50% {
-      transform: scale(1.1); // Scale up to 120% at the middle of the animation
+    transform: scale(1.1); // Scale up to 120% at the middle of the animation
   }
+
   100% {
-      transform: scale(1); // Return to the original size at the end of the animation
+    transform: scale(1); // Return to the original size at the end of the animation
   }
 }
 
 .sentences-count {
-    text-align: center;
+  text-align: center;
 
-    h1 {
-        font-size: 40px;
-        padding-top: 20px;
-        color: rgb(24, 105, 132);
-    }
+  h1 {
+    font-size: 40px;
+    padding-top: 20px;
+    color: rgb(24, 105, 132);
+  }
 
-    p {
-        color: gray;
-        margin-top: 10px;
-    }
+  p {
+    color: gray;
+    margin-top: 10px;
+  }
 }
 
 .cards-count {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    gap: 20px;
-    flex-wrap: wrap;
-  
-    .card-count {
-      position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  .card-count {
+    position: relative;
+    width: 330px;
+    height: 300px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    img {
       width: 330px;
       height: 300px;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  
-      img {
-        width: 330px;
-        height: 300px;
-        background-size: cover;
-        filter: brightness(0.6);
-      }
-      h2{
-        color: white;
-      }
+      background-size: cover;
+      filter: brightness(0.6);
+    }
+
+    h2 {
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(2px);
+      // background-color: rgba(255, 0, 0, 0.7);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+
       .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        backdrop-filter: blur(2px);
-        // background-color: rgba(255, 0, 0, 0.7);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-      }
-  
-      &:hover {
-        cursor: pointer;
-  
-        .overlay {
-          opacity: 1;
-        }
+        opacity: 1;
       }
     }
   }
+}

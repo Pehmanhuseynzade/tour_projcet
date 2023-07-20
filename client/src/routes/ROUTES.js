@@ -5,6 +5,10 @@ import Contact from "../Pages/user/Contact"
 import About from "../Pages/user/About";
 import Countries from "../Pages/user/Countries";
 import Tours from "../Pages/user/Tours";
+import Adminroot from "../Pages/admin/Adminroot";
+import Contactadmin from "../Pages/admin/Contactadmin";
+import Main from "../Pages/admin/Main";
+import Emaill from "../Pages/admin/Emaill";
 
 export const ROUTER = [
      {
@@ -36,5 +40,23 @@ export const ROUTER = [
                     element:<Detail/>
                }
           ]
-     }
+     },
+     {
+          path:'/admin',
+          element:<Adminroot/>,
+          children:[
+              {
+                  path:'',
+                  element:<Main/>
+              },
+              {
+                  path:'contactus',
+                  element:<Contactadmin/>
+              },
+              {
+                  path:'sendemail',
+                  element:<Emaill/>
+              }
+          ] 
+      }
 ]

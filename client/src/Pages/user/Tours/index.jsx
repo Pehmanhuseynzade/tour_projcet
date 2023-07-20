@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import "./tours.scss"
 import { gettourdatas } from "../../../api/httpsrequests"
 import { Link } from 'react-router-dom'
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 function Tours() {
     const [tour, setTour] = useState([])
