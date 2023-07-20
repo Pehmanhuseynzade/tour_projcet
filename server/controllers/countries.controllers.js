@@ -44,7 +44,7 @@ const countriesModelController = {
         countriesimg:countriesimg
       }
       await countriesModel.findByIdAndUpdate(id,putcountries)
-         res.status(200).send(countriesModel)
+         res.status(200).send(putcountries)
     }
 }
 

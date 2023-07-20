@@ -4,6 +4,7 @@ const toursSchema = new mongoose.Schema({
     toursimg: String,
     toursname: String,
     toursprice: Number,
+    toursday:Number,
     toursdesc: String,
     toursdate: String,
 });

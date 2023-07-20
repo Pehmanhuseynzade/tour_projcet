@@ -25,11 +25,12 @@ const tourModelController = {
         res.status(200).send(delettour)
       },
     post:async(req,res)=>{
-        const {toursimg,toursname,toursprice,toursdesc,toursdate} = req.body
+        const {toursimg,toursname,toursprice,toursday,toursdesc,toursdate} = req.body
         const postuse = new tourModel({
             toursimg:toursimg,
             toursname:toursname,
             toursprice:toursprice,
+            toursday:toursday,
             toursdesc:toursdesc,
             toursdate:toursdate
         })
@@ -41,16 +42,17 @@ const tourModelController = {
       },
     edit:async(req,res)=>{
       const id = req.params.id
-      const {toursimg,toursname,toursprice,toursdesc,toursdate} = req.body
+      const {toursimg,toursname,toursprice,toursday,toursdesc,toursdate} = req.body
       const puttour = {
         toursimg:toursimg,
         toursname:toursname,
         toursprice:toursprice,
+        toursday:toursday,
         toursdesc:toursdesc,
         toursdate:toursdate
       }
       await tourModel.findByIdAndUpdate(id,puttour)
-         res.status(200).send(tourModel)
+         res.status(200).send(puttour)
     }
 }
 

@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import "./home.scss"
 import { Link } from 'react-router-dom'
+import { getInfodatas } from '../../../api/httpsrequests'
 function Home() {
+  const[use,setUse]=useState()
+  useEffect(()=>{
+    getInfodatas().then((data)=>{
+      setUse(data)
+      console.log(data)
+    })
+  },[])
   return (
     <>
       <main>
@@ -106,21 +114,13 @@ function Home() {
       </div>
 
       <div className='my-cards'>
-        <div className='my-card'>
-          <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/home-1-image-1.jpg" alt="mycardimage" />
-          <h2>Private Guide Tour</h2>
-          <p>Duis dolor est, tincidunt vel enim sit amet, venenatis euismod neque. Duis eleifend ligula id tortor finibus faucibus. Donec et quam pulvinar, blandit tortor.</p>
-        </div>
-        <div className='my-card'>
-          <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/home-1-image-2.jpg" alt="mycardimage" />
-          <h2>Private Guide Tour</h2>
-          <p>Duis dolor est, tincidunt vel enim sit amet, venenatis euismod neque. Duis eleifend ligula id tortor finibus faucibus. Donec et quam pulvinar, blandit tortor.</p>
-        </div>
-        <div className='my-card'>
-          <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/home-1-image-1.jpg" alt="mycardimage" />
-          <h2>Private Guide Tour</h2>
-          <p>Duis dolor est, tincidunt vel enim sit amet, venenatis euismod neque. Duis eleifend ligula id tortor finibus faucibus. Donec et quam pulvinar, blandit tortor.</p>
-        </div>
+        {use && use.map((usedata)=>(
+        <div key={usedata._id} className='my-card'>
+        <img src={usedata.useimg} alt="mycardimage" />
+        <h2>{usedata.usename}</h2>
+        <p>{usedata.usedesc}</p>
+      </div>
+        ))}
       </div>
     </>
 

@@ -40,13 +40,15 @@ const useModelController = {
     edit:async(req,res)=>{
       const id = req.params.id
       const {useimg,usename,usedesc} = req.body
-      const putuse = {
+      const put = {
         useimg:useimg,
         usename:usename,
         usedesc:usedesc
       }
-      await useModel.findByIdAndUpdate(id,putuse)
-         res.status(200).send(useModel)
+      await useModel.findByIdAndUpdate(id,put)
+         res.status(200).send({
+              message:`${put.usename} update is succesfully!`
+          })
     }
 }
 

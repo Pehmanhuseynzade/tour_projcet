@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./tours.scss"
+import { gettourdatas } from "../../../api/httpsrequests"
 
 function Tours() {
+    const [tour, setTour] = useState([])
+    useEffect(() => {
+        gettourdatas().then((data) => {
+            setTour(data)
+            console.log(data)
+        })
+    })
     return (
         <>
             <div className='countries-tours'>
@@ -21,49 +29,22 @@ function Tours() {
             </div>
 
             <div className='tour-cards'>
-                <div className='my-card'>
-                    <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/tour-title-image-8.jpg" alt="mycardimage" />
-                    <div className='overlay'></div>
-                    <div className='sale'>
-                    <h2>Madrid To Rome</h2>
-                    <h2 className='blue'><span>$</span>1490</h2>
+                {tour && tour.map((tourdata) => (
+                    <div key={tourdata._id} className='my-card'>
+                        <img src={tourdata.toursimg} alt="mycardimage" />
+                        <div className='overlay'></div>
+                        <div className='sale'>
+                            <h2>{tourdata.toursname}</h2>
+                            <h2 className='blue'><span>$</span>{tourdata.toursprice}</h2>
+                        </div>
+                        <p className='desc'>{tourdata.toursdesc}</p>
+                        <div className='statistic-icon'>
+                            <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><i class="fa-regular fa-calendar"></i><p>{tourdata.toursday}</p><span style={{ color: "gray" }}>days</span></div>
+                            <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><p>{tourdata.toursdate}</p></div>
+                            <button style={{ marginLeft: 100 }} className='btn'>Order</button>
+                        </div>
                     </div>
-                    <p className='desc'>Duis dolor est, tincidunt vel enim sit amet, venenatis euismod neque. Duis eleifend ligula id tortor finibus faucibus. Donec et quam pulvinar, blandit tortor.</p>
-                    <div className='statistic-icon'>
-                        <div style={{display:"flex",justifyContent:"center",gap:"5px"}}><i class="fa-regular fa-calendar"></i><p>7</p><span style={{color:"gray"}}>days</span></div>
-                        <div style={{display:"flex",justifyContent:"center",gap:"5px"}}><i class="fa-regular fa-user"></i><p>12</p><span style={{color:"gray"}}>+</span></div>
-                        <button style={{marginLeft:100}} className='btn'>Order</button>
-                    </div>
-                </div>
-                <div className='my-card'>
-                    <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/tour-title-image-8.jpg" alt="mycardimage" />
-                    <div className='overlay'></div>
-                    <div className='sale'>
-                    <h2>Madrid To Rome</h2>
-                    <h2 className='blue'><span>$</span>1490</h2>
-                    </div>
-                    <p className='desc'>Duis dolor est, tincidunt vel enim sit amet, venenatis euismod neque. Duis eleifend ligula id tortor finibus faucibus. Donec et quam pulvinar, blandit tortor.</p>
-                    <div className='statistic-icon'>
-                        <div style={{display:"flex",justifyContent:"center",gap:"5px"}}><i class="fa-regular fa-calendar"></i><p>7</p><span style={{color:"gray"}}>days</span></div>
-                        <div style={{display:"flex",justifyContent:"center",gap:"5px"}}><i class="fa-regular fa-user"></i><p>12</p><span style={{color:"gray"}}>+</span></div>
-                        <button style={{marginLeft:100}} className='btn'>Order</button>
-                    </div>
-                </div>
-                <div className='my-card'>
-                    <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/tour-title-image-8.jpg" alt="mycardimage" />
-                    <div className='overlay'></div>
-                    <div className='sale'>
-                    <h2>Madrid To Rome</h2>
-                    <h2 className='blue'><span>$</span>1490</h2>
-                    </div>
-                    <p className='desc'>Duis dolor est, tincidunt vel enim sit amet, venenatis euismod neque. Duis eleifend ligula id tortor finibus faucibus. Donec et quam pulvinar, blandit tortor.</p>
-                    <div className='statistic-icon'>
-                        <div style={{display:"flex",justifyContent:"center",gap:"5px"}}><i class="fa-regular fa-calendar"></i><p>7</p><span style={{color:"gray"}}>days</span></div>
-                        <div style={{display:"flex",justifyContent:"center",gap:"5px"}}><i class="fa-regular fa-user"></i><p>12</p><span style={{color:"gray"}}>+</span></div>
-                        <button style={{marginLeft:100}} className='btn'>Order</button>
-                    </div>
-                </div>
-                
+                ))}
             </div>
         </>
     )

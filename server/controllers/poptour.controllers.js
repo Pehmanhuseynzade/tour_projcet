@@ -25,11 +25,12 @@ const poptourModelController = {
         res.status(200).send(deletpoptour)
       },
     post:async(req,res)=>{
-        const {poptoursimg,poptoursname,poptoursprice,poptoursdesc,poptoursdate} = req.body
+        const {poptoursimg,poptoursname,poptoursprice,poptoursday,poptoursdesc,poptoursdate} = req.body
         const postuse = new poptourModel({
             poptoursimg:poptoursimg,
             poptoursname:poptoursname,
             poptoursprice:poptoursprice,
+            poptoursday:poptoursday,
             poptoursdesc:poptoursdesc,
             poptoursdate:poptoursdate
         })
@@ -41,16 +42,17 @@ const poptourModelController = {
       },
     edit:async(req,res)=>{
       const id = req.params.id
-      const {poptoursimg,poptoursname,poptoursprice,poptoursdesc,poptoursdate} = req.body
+      const {poptoursimg,poptoursname,poptoursprice,poptoursday,poptoursdesc,poptoursdate} = req.body
       const putpoptour = {
         poptoursimg:poptoursimg,
         poptoursname:poptoursname,
         poptoursprice:poptoursprice,
+        poptoursday:poptoursday,
         poptoursdesc:poptoursdesc,
         poptoursdate:poptoursdate
       }
       await poptourModel.findByIdAndUpdate(id,putpoptour)
-         res.status(200).send(poptourModel)
+         res.status(200).send(putpoptour)
     }
 }
 
