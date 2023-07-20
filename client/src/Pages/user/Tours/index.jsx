@@ -14,7 +14,7 @@ function Tours() {
     return (
         <>
             <div className='countries-tours'>
-                <img src="https://mksdmcdn-9b59.kxcdn.com/trawell/wp-content/uploads/2018/03/rawpixel-com-191102-unsplash-1920x1254.jpg" alt="mainimage" />
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsfGVufDB8fDB8fHww&w=1000&q=80" alt="mainimage" />
                 <h1>Tours Page</h1>
             </div>
 
@@ -51,7 +51,7 @@ function Tours() {
                         <div className='statistic-icon'>
                             <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><i class="fa-regular fa-calendar"></i><p>{tourdata.toursday}</p><span style={{ color: "gray" }}>days</span></div>
                             <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><p>{tourdata.toursdate}</p></div>
-                            <button style={{ marginLeft: 100 }} className='btn'>Order</button>
+                            <button style={{ marginLeft: 50 }} className='btn'>Order</button>
                         </div>
                     </div>
                 ))}

@@ -56,7 +56,28 @@ function Home() {
           </div>
         ))}
       </div>
+      <div className="sentences">
+        <h1>Useful Information</h1>
+        <div className="line"></div>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's
+        </p>
+        <p>
+          standard dummy text ever since the 1500s, when an unknown printer took
+          a galley of type.
+        </p>
+      </div>
 
+      <div className='my-cards'>
+        {use && use.map((usedata) => (
+          <div key={usedata._id} className='my-card'>
+            <img src={usedata.useimg} alt="mycardimage" />
+            <h2>{usedata.usename}</h2>
+            <p>{usedata.usedesc}</p>
+          </div>
+        ))}
+      </div>
 
       <div className='line-p'>WHERE I'VE BEEN</div>
       <div className='iframe'>
@@ -82,28 +103,6 @@ function Home() {
           </div>
         </div>
       </div> */}
-      <div className="sentences">
-        <h1>Useful Information</h1>
-        <div className="line"></div>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's
-        </p>
-        <p>
-          standard dummy text ever since the 1500s, when an unknown printer took
-          a galley of type.
-        </p>
-      </div>
-
-      <div className='my-cards'>
-        {use && use.map((usedata) => (
-          <div key={usedata._id} className='my-card'>
-            <img src={usedata.useimg} alt="mycardimage" />
-            <h2>{usedata.usename}</h2>
-            <p>{usedata.usedesc}</p>
-          </div>
-        ))}
-      </div>
     </>
 
   )

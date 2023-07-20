@@ -87,13 +87,13 @@ function Footer() {
         <div className='mainfoot-img'>
             <div className='footimg-1'>
               <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/brazil-image-gallery-11.jpg" alt="footimg" />
-              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/brazil-image-gallery-11.jpg" alt="footimg" />
-              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/brazil-image-gallery-11.jpg" alt="footimg" />
+              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/brazil-image-gallery-9.jpg" alt="footimg" />
+              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/japan-image-gallery-9.jpg" alt="footimg" />
             </div>
             <div className='footimg-2'>
-              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/brazil-image-gallery-11.jpg" alt="footimg" />
-              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/brazil-image-gallery-11.jpg" alt="footimg" />
-              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/brazil-image-gallery-11.jpg" alt="footimg" />
+              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/japan-image-gallery-6.jpg" alt="footimg" />
+              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/japan-image-gallery-11.jpg" alt="footimg" />
+              <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/lisbon-image-gallery-7.jpg" alt="footimg" />
             </div>
           </div>
         </div>

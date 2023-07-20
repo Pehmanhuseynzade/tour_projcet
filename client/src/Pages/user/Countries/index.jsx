@@ -13,8 +13,8 @@ function Countries() {
   return (
     <>
       <div className='countries-count'>
-        <img src="https://mksdmcdn-9b59.kxcdn.com/trawell/wp-content/uploads/2018/03/rawpixel-com-191102-unsplash-1920x1254.jpg" alt="mainimage" />
-        <h1>Countries</h1>
+        <img src="https://media.cntraveller.com/photos/611bf1c322be3ca7e5c00f3a/16:9/w_3200,h_1800,c_limit/beaut.jpg" alt="mainimage" />
+        <h1>Countries Page</h1>
       </div>
       <div className='voyage'>
         <div><p style={{ color: "gray", fontSize: "23px" }}>Voyage / A Reasonable Place To Visit</p></div>
