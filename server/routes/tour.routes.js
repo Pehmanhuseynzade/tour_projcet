@@ -1,16 +1,16 @@
 const express = require('express');
-const tour_router = express.Router();
+const traveltour_router = express.Router();
 const tourModelController = require("../controllers/tour.controllers")
 
-tour_router.get('/',tourModelController.getAll);
+traveltour_router.get('/',tourModelController.getAll);
 
-tour_router.get('/:id', tourModelController.getOne);
+traveltour_router.get('/:id', tourModelController.getOne);
 
-tour_router.delete('/:id',tourModelController.delete);
+traveltour_router.delete('/:id',tourModelController.delete);
 
-tour_router.post('/',tourModelController.post);
+traveltour_router.post('/',tourModelController.post);
 
-tour_router.put('/:id',tourModelController.edit);
+traveltour_router.put('/:id',tourModelController.edit);
 
 
-module.exports = tour_router;
+module.exports = traveltour_router;

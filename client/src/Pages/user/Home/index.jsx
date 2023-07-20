@@ -1,15 +1,23 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./home.scss"
 import { Link } from 'react-router-dom'
-import { getInfodatas } from '../../../api/httpsrequests'
+import { getInfodatas, getpoptourdatas } from '../../../api/httpsrequests'
 function Home() {
-  const[use,setUse]=useState()
-  useEffect(()=>{
-    getInfodatas().then((data)=>{
+  const [use, setUse] = useState([])
+  const [poptour, setPoptour] = useState([])
+  useEffect(() => {
+    getInfodatas().then((data) => {
       setUse(data)
       console.log(data)
     })
-  },[])
+  }, [])
+
+  useEffect(() => {
+    getpoptourdatas().then((data) => {
+      setPoptour(data)
+      console.log(data)
+    })
+  }, [])
   return (
     <>
       <main>
@@ -31,48 +39,22 @@ function Home() {
       </div>
 
       <div className='cards'>
-        <div className='card'>
-          <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/japan-image-gallery-11.jpg" alt="mycardimage" />
-          <div class="overlay">
-            <div className='pop-tour'>
-              <h3>Highlights Of Vietnam</h3>
-              <h3><span>$</span>1430</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimentum egestas, libero…</p>
-            <div className='par-cash'>
-              <Link><i class="fa-solid fa-parachute-box"></i></Link>
-              <Link><i class="fa-solid fa-wallet"></i></Link>
-            </div>
-          </div>
-        </div>
-        <div className='card'>
-          <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/vietnam-image-gallery-2.jpg" alt="mycardimage" />
-          <div class="overlay">
-            <div className='pop-tour'>
-              <h3>Highlights Of Vietnam</h3>
-              <h3><span>$</span>1430</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimentum egestas, libero…</p>
-            <div className='par-cash'>
-              <Link><i class="fa-solid fa-parachute-box"></i></Link>
-              <Link><i class="fa-solid fa-wallet"></i></Link>
+        {poptour && poptour.map((poptourdata) => (
+          <div key={poptourdata._id} className='card'>
+            <img src={poptourdata.poptoursimg} alt="mycardimage" />
+            <div class="overlay">
+              <div className='pop-tour'>
+                <h3>{poptourdata.poptoursname}</h3>
+                <h3><span>$</span>{poptourdata.poptoursprice}</h3>
+              </div>
+              <p>{poptourdata.poptoursdesc}</p>
+              <div className='par-cash'>
+                <Link><i class="fa-solid fa-parachute-box"></i></Link>
+                <Link><i class="fa-solid fa-wallet"></i></Link>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='card'>
-          <img src="https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/vietnam-image-gallery-2.jpg" alt="mycardimage" />
-          <div class="overlay">
-            <div className='pop-tour'>
-              <h3>Highlights Of Vietnam</h3>
-              <h3><span>$</span>1430</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimentum egestas, libero…</p>
-            <div className='par-cash'>
-              <Link><i class="fa-solid fa-parachute-box"></i></Link>
-              <Link><i class="fa-solid fa-wallet"></i></Link>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
 
@@ -114,12 +96,12 @@ function Home() {
       </div>
 
       <div className='my-cards'>
-        {use && use.map((usedata)=>(
-        <div key={usedata._id} className='my-card'>
-        <img src={usedata.useimg} alt="mycardimage" />
-        <h2>{usedata.usename}</h2>
-        <p>{usedata.usedesc}</p>
-      </div>
+        {use && use.map((usedata) => (
+          <div key={usedata._id} className='my-card'>
+            <img src={usedata.useimg} alt="mycardimage" />
+            <h2>{usedata.usename}</h2>
+            <p>{usedata.usedesc}</p>
+          </div>
         ))}
       </div>
     </>

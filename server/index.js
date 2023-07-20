@@ -13,7 +13,9 @@ dotenv.config();
 const use_router = require("./routes/usefulinfo.routes")
 const countries_router = require("./routes/countries.routes")
 const poptour_router = require("./routes/poptour.routes")
-const tour_router = require("./routes/tour.routes")
+const traveltour_router = require("./routes/tour.routes")
+const sendemail_router = require("./routes/sendemail.routes")
+const form_router = require("./routes/form.routes")
 
 
 app.get("/", (req, res) => {
@@ -22,7 +24,9 @@ app.get("/", (req, res) => {
 app.use(`/api/useful`, use_router)
 app.use(`/api/countries`, countries_router)
 app.use(`/api/poptour`, poptour_router)
-app.use(`/api/tour`, tour_router)
+app.use(`/api/traveltour`, traveltour_router)
+app.use(`/api/sendemail`, sendemail_router)
+app.use(`/api/contactus`, form_router)
 
 
 

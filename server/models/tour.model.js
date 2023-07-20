@@ -9,7 +9,7 @@ const toursSchema = new mongoose.Schema({
     toursdate: String,
 });
 
-const toursModel = mongoose.model('tours', toursSchema);
+const toursModel = mongoose.model('traveltour', toursSchema);
 
 
 module.exports = toursModel

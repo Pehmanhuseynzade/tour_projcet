@@ -101,7 +101,7 @@ export const putpoptourDataByID = async(update,id)=>{
 
 export const gettourdatas = async()=>{
     let globalData;
-    await axios.get(`${BASE_URL1}/tour`)
+    await axios.get(`${BASE_URL1}/traveltour`)
     .then((res)=>{
          globalData = res.data
     })
@@ -110,7 +110,7 @@ export const gettourdatas = async()=>{
 
 export const gettourdatasID = async(id)=>{
     let globalData;
-    await axios.get(`${BASE_URL1}/tour/${id}`)
+    await axios.get(`${BASE_URL1}/traveltour/${id}`)
     .then((res)=>{
          globalData = res.data
     })
@@ -118,13 +118,76 @@ export const gettourdatasID = async(id)=>{
 }
 
 export const gettourDelete = async(id)=>{
-    await axios.delete(`${BASE_URL1}/tour/${id}`)
+    await axios.delete(`${BASE_URL1}/traveltour/${id}`)
 }
 
 export const gettourPost = async(payload)=>{
-    await axios.post(`${BASE_URL1}/tour`,payload)
+    await axios.post(`${BASE_URL1}/traveltour`,payload)
 }
 
 export const puttourDataByID = async(update,id)=>{
-    await axios.put(`${BASE_URL1}/tour/${id}`,update)
+    await axios.put(`${BASE_URL1}/traveltour/${id}`,update)
+}
+//5.For form
+
+export const getformdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/contactus`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getformdatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/contactus/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getformDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/contactus/${id}`)
+}
+
+export const getformPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/contactus`,payload)
+}
+
+export const putformByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/contactus/${id}`,update)
+}
+
+//6.For sendemail
+
+export const getsendemaildatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/sendemail`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getsendemaildatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/sendemail/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getsendemailDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/sendemail/${id}`)
+}
+
+export const getsendemailPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/sendemail`,payload)
+}
+
+export const putsendemailByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/sendemail/${id}`,update)
 }
