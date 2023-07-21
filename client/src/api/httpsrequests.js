@@ -191,3 +191,36 @@ export const getsendemailPost = async(payload)=>{
 export const putsendemailByID = async(update,id)=>{
     await axios.put(`${BASE_URL1}/sendemail/${id}`,update)
 }
+
+//sign in
+export const getsignIn = ()=>{
+    let signin;
+     axios.get(`${BASE_URL1}/loginn`,{
+    }).then((res)=>{
+        signin = res.data.data;
+    })
+    return signin;
+}
+
+export const signIN = async(payload)=>{
+  const response = await axios.post(`${BASE_URL1}/loginn`,payload);
+  return response.data;
+}
+
+
+export const getsignDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/loginn/${id}`)
+}
+
+//get users
+export const getUsers = ()=>{
+    let users;
+     axios.get(`${BASE_URL1}/userss`,{
+        // headers: {
+        //     'x-access-token': token 
+        // }
+    }).then((res)=>{
+        users = res.data.data;
+    })
+    return users;
+}

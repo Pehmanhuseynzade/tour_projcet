@@ -100,8 +100,8 @@ function Home() {
                 </div>
                 <p>{poptourdata.poptoursdesc}</p>
                 <div className='par-cash'>
-                  <Link><i class="fa-solid fa-parachute-box"></i></Link>
-                  <Link><i class="fa-solid fa-wallet"></i></Link>
+                  <Link to={`/detailpop/${poptourdata._id}`}  ><i class="fa-solid fa-parachute-box"></i></Link>
+                  {/* <Link ><i class="fa-solid fa-wallet"></i></Link> */}
                 </div>
               </div>
             </div>
