@@ -13,7 +13,6 @@ function Navbar() {
         <Link to='countries'><p>Countries</p></Link>
         <Link to='tours'><p>Tours</p></Link>
         <Link to='contact'><p>Contact</p></Link>
-        <Link to='register'><p>Register</p></Link>
       </div>
     </header>
   )

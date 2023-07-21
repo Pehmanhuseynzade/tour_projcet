@@ -84,14 +84,14 @@ function Tours() {
                         <Link to={`/detail/${tourdata._id}`} ><img src={tourdata.toursimg} alt="mycardimage" /></Link>
                         <div className='overlay'></div>
                         <div className='sale'>
-                            <h2>{tourdata.toursname}</h2>
+                        <Link to={`/detail/${tourdata._id}`}><h2 style={{color:"black"}}>{tourdata.toursname}</h2></Link>
                             <h2 className='blue'><span>$</span>{tourdata.toursprice}</h2>
                         </div>
                         <p className='desc'>{tourdata.toursdesc}</p>
                         <div className='statistic-icon'>
                             <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><i class="fa-regular fa-calendar"></i><p>{tourdata.toursday}</p><span style={{ color: "gray" }}>days</span></div>
                             <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><p>{tourdata.toursdate}</p></div>
-                            <button style={{ marginLeft: 50 }} className='btn'>Order</button>
+                            {/* <button style={{ marginLeft: 50 }} className='btn'>Order</button> */}
                         </div>
                     </div>
                 ))}

@@ -1,6 +1,7 @@
 import Mainroot from "../Pages/user/Mainroot";
 import Home from "../Pages/user/Home"
 import Detail from "../Pages/user/Detail"
+import Detailpop from "../Pages/user/Detailpop"
 import Contact from "../Pages/user/Contact"
 import About from "../Pages/user/About";
 import Countries from "../Pages/user/Countries";
@@ -38,6 +39,10 @@ export const ROUTER = [
                {
                     path:'detail/:id',
                     element:<Detail/>
+               },
+               {
+                    path:'detailpop/:id',
+                    element:<Detailpop/>
                }
           ]
      },
