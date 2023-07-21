@@ -1,0 +1,51 @@
+.tour-det {
+    position: relative;
+    overflow: hidden;
+  
+    img {
+      padding-top: 40px;
+      width: 100%;
+      height: 75vh;
+      background-size: cover;
+      filter: brightness(0.5);
+    //   transform-origin: center; // Set the origin of the scaling effect to the center of the image
+    //   animation: scaleAnimation 9s infinite alternate; // Apply the animation to the image
+    }
+  
+    h1 {
+      font-size: 38px;
+      position: absolute;
+      bottom: 290px;
+      left: 620px;
+      color: white;
+    }
+  
+  }
+.det-pay{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    gap: 60px;
+    .det-info{
+        .name-price{
+            display: flex;
+            gap: 30px;   
+        }
+      }
+      .payment{
+        form{
+            padding-left:50px ;
+            padding-right: 50px;
+            border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+        }
+        button{
+            width: 300px;
+            height: 30px;
+            color: white;
+            background-color: rgb(2, 39, 52);
+        }
+      }
+}

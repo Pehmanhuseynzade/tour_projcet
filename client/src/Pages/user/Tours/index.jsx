@@ -3,20 +3,34 @@ import "./tours.scss"
 import { gettourdatas } from "../../../api/httpsrequests"
 import { Link } from 'react-router-dom'
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 
 function Tours() {
     const [tour, setTour] = useState([])
+    const [input, setInput] = useState("");
+    const [sort, setSort] = useState(true);
     useEffect(() => {
         gettourdatas().then((data) => {
             setTour(data)
             console.log(data)
         })
     })
+
+    function handleSearch(e) {
+        setInput(e.target.value);
+    }
+    function handleSort() {
+        if (sort === true) {
+            setTour(tour.sort((x, y) => x.toursprice - y.toursprice));
+            setSort(false);
+        } else {
+            setSort(true);
+            setTour(tour.sort((x, y) => y.toursprice - x.toursprice));
+        }
+    }
     return (
         <>
             <div className='countries-tours'>
-                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsfGVufDB8fDB8fHww&w=1000&q=80" alt="mainimage" />
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsfGVufDB8fDB8fHww&w=1000&q=80" alt="mainimage" />
                 <h1>Tours Page</h1>
             </div>
 
@@ -40,10 +54,34 @@ function Tours() {
                 </p>
             </div>
 
+            <div className="search-sort">
+                <TextField
+                    onChange={(e) => handleSearch(e)}
+                    id="outlined-basic"
+                    label="Search"
+                    variant="outlined"
+                />
+                <button onClick={handleSort} >
+                    Sort By Price
+                </button>
+            </div>
             <div className='tour-cards'>
-                {tour && tour.map((tourdata) => (
+                {tour && tour.filter((item) => {
+              if (item === "") {
+                return tour;
+              } else if (
+                item.toursname
+                  .toLowerCase()
+                  .trim()
+                  .includes(input.toLowerCase().trim())
+              ) {
+                return item;
+              }
+              return null;
+            })
+            .map((tourdata) => (
                     <div key={tourdata._id} className='my-card'>
-                        <img src={tourdata.toursimg} alt="mycardimage" />
+                        <Link to={`/detail/${tourdata._id}`} ><img src={tourdata.toursimg} alt="mycardimage" /></Link>
                         <div className='overlay'></div>
                         <div className='sale'>
                             <h2>{tourdata.toursname}</h2>

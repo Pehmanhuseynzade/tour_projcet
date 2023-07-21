@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import "./home.scss"
+import TextField from "@mui/material/TextField";
 import { Link } from 'react-router-dom'
 import { getInfodatas, getpoptourdatas } from '../../../api/httpsrequests'
 function Home() {
   const [use, setUse] = useState([])
   const [poptour, setPoptour] = useState([])
+  const [input, setInput] = useState("");
+  const [sort, setSort] = useState(true);
   useEffect(() => {
     getInfodatas().then((data) => {
       setUse(data)
       console.log(data)
     })
   }, [])
-
+  function handleSearch(e) {
+    setInput(e.target.value);
+  }
+  function handleSort() {
+    if (sort === true) {
+      setPoptour(poptour.sort((x, y) => x.poptoursprice - y.poptoursprice));
+      setSort(false);
+    } else {
+      setSort(true);
+      setPoptour(poptour.sort((x, y) => y.poptoursprice - x.poptoursprice));
+    }
+  }
   useEffect(() => {
     getpoptourdatas().then((data) => {
       setPoptour(data)
@@ -25,6 +39,7 @@ function Home() {
         <h1>Where will you go next?</h1>
         <p>Welcome to Trawell, a WordPress theme carefully crafted for travelers and adventurers. Pack your bags, hit the road and don't forget to write down all of your amazing stories!</p>
       </main>
+      <div style={{display:"flex",justifyContent:"center",alignItems:"center",padding:"40px"}}><img src="https://mksdmcdn-9b59.kxcdn.com/trawell/wp-content/themes/trawell/assets/img/asseen.jpg" alt="img" /></div>
 
       <div className="sentences">
         <h1>Most Popular Tours</h1>
@@ -37,9 +52,32 @@ function Home() {
           a galley of type.
         </p>
       </div>
-
+      <div className="search-sort">
+        <TextField
+          onChange={(e) => handleSearch(e)}
+          id="outlined-basic"
+          label="Search"
+          variant="outlined"
+        />
+        <button onClick={handleSort} >
+          Sort By Price
+        </button>
+      </div>
       <div className='cards'>
-        {poptour && poptour.map((poptourdata) => (
+        {poptour && poptour.filter((item) => {
+              if (item === "") {
+                return poptour;
+              } else if (
+                item.poptoursname
+                  .toLowerCase()
+                  .trim()
+                  .includes(input.toLowerCase().trim())
+              ) {
+                return item;
+              }
+              return null;
+            })
+            .map((poptourdata) => (
           <div key={poptourdata._id} className='card'>
             <img src={poptourdata.poptoursimg} alt="mycardimage" />
             <div class="overlay">
@@ -56,6 +94,7 @@ function Home() {
           </div>
         ))}
       </div>
+
       <div className="sentences">
         <h1>Useful Information</h1>
         <div className="line"></div>

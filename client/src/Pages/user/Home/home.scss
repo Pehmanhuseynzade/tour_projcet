@@ -65,7 +65,27 @@ main {
         }
     }
 }
-
+.search-sort{
+    display: flex;
+    gap: 20px;
+    margin-left: 155px;
+    margin-top: 40px;
+    button{
+        width: 120px;
+        height: 33px;
+        background-color: teal;
+        color: white;
+        border: none;
+        margin-top: 10px;
+        border-radius: 4px;
+        transition: .5s;
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(1, 139, 139, 0.902);
+        }
+    }
+    // padding-bottom: 40px;
+}
 .iframe {
     display: flex;
     justify-content: center;

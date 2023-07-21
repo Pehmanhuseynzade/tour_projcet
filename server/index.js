@@ -17,7 +17,6 @@ const traveltour_router = require("./routes/tour.routes")
 const sendemail_router = require("./routes/sendemail.routes")
 const form_router = require("./routes/form.routes")
 
-
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
