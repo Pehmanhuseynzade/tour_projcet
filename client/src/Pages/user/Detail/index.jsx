@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom"
-import "./detail.scss"
-// import { gettourdatasID } from "../../../api/httpsrequests";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import "./detail.scss";
+import { toast, ToastContainer } from "react-toastify";
 import { Button } from "@mui/material";
+import Swal from "sweetalert2"
 import axios from "axios";
+
 function Detail() {
-  const [tour, setTour] = useState({})
+  const [tour, setTour] = useState({});
   const params = useParams();
   const navigate = useNavigate();
 
@@ -17,7 +19,44 @@ function Detail() {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
+
+  const handleFormSubmitPost = async (e) => {
+    e.preventDefault();
+
+    // Assuming tour is an object, not an array
+    const payment = {
+      paymenttourName: tour.toursname,
+      paymenttourPrice: tour.toursprice,
+      paymenttourDesc: tour.toursdesc,
+      paymenttourImage : tour.toursimg  
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:7374/api/payment",
+        payment
+      );
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
+      setTimeout(() => {
+        // toast.success("Payment successfully!", {
+        //   autoClose: 1000
+        // });
+        navigate("/");
+        window.location.reload();
+      }, 3000);
+    } catch (error) {
+      // Handle the error
+    }
+  };
+
   return (
     <>
       <div className='tour-det'>
@@ -27,8 +66,8 @@ function Detail() {
       <div className='voyage'>
         <div><p style={{ color: "gray", fontSize: "23px" }}>Voyage / A Reasonable Place To Visit</p></div>
         <div style={{ display: "flex", gap: "10px" }}>
-          <Link><div><i style={{ color: "blue" }} class="fa-brands fa-facebook-f"></i> Facebook</div></Link>
-          <Link><div><i style={{ color: "lightblue" }} class="fa-brands fa-twitter"></i> Twitter</div></Link>
+          <Link><div><i style={{ color: "blue" }} className="fa-brands fa-facebook-f"></i> Facebook</div></Link>
+          <Link><div><i style={{ color: "lightblue" }} className="fa-brands fa-twitter"></i> Twitter</div></Link>
         </div>
       </div>
       <div className="det-pay">
@@ -45,41 +84,23 @@ function Detail() {
             <h2>BOOK THIS TOUR</h2>
             <input placeholder="First Name" style={{ width: 300, height: 35, paddingLeft: "10px", color: "gray" }} type="text" />
             <input placeholder="Last Name" style={{ width: 300, height: 35, paddingLeft: "10px", color: "gray" }} type="text" />
-            <input placeholder="Email" style={{ width: 300, height: 35, paddingLeft: "10px", color: "gray" }} type="text" />
+            <input placeholder="Email" style={{ width: 300, height: 35, paddingLeft: "10px", color: "gray" }} type="email" />
             <h2>Card Information</h2>
-            {/* NUMBER ETT */}
             <input placeholder="Card Number" style={{ width: 300, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
             <div style={{ display: "flex", justifyContent: "center" }}>
               <input placeholder="Date" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
-              <input placeholder="Cvv" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
+              <input placeholder="cvv" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
             </div>
             <input placeholder="Card Name" style={{ width: 300, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
-            <button type="submit">Pay</button>
+            <button
+              onClick={handleFormSubmitPost}
+              type="submit">Pay</button>
           </form>
         </div>
       </div>
-      {/* <div className='tour-cards'>
-  
-          <div key={tour._id} className='my-card'>
-            <img src={tour.toursimg} alt="mycardimage" />
-            <div className='overlay'></div>
-            <div className='sale'>
-              <h2>{tour.toursname}</h2>
-              <h2 className='blue'><span>$</span>{tour.toursprice}</h2>
-            </div>
-            <p className='desc'>{tour.toursdesc}</p>
-            <div className='statistic-icon'>
-              <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><i class="fa-regular fa-calendar"></i><p>{tour.toursday}</p><span style={{ color: "gray" }}>days</span></div>
-              <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><p>{tour.toursdate}</p></div>
-              <button style={{ marginLeft: 50 }} className='btn'>Order</button>
-            </div>
-          </div>
-          <Button onClick={() => {
-              navigate(-1)
-            }} variant="contained">Go back</Button>
-      </div> */}
+      {/* <ToastContainer /> */}
     </>
   )
 }
 
-export default Detail
+export default Detail;

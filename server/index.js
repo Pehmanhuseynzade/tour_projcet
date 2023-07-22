@@ -16,6 +16,7 @@ const poptour_router = require("./routes/poptour.routes")
 const traveltour_router = require("./routes/tour.routes")
 const sendemail_router = require("./routes/sendemail.routes")
 const form_router = require("./routes/form.routes")
+const payment_router = require("./routes/payment.routes")
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -26,6 +27,7 @@ app.use(`/api/poptour`, poptour_router)
 app.use(`/api/traveltour`, traveltour_router)
 app.use(`/api/sendemail`, sendemail_router)
 app.use(`/api/contactus`, form_router)
+app.use(`/api/payment`, payment_router)
 
 
 

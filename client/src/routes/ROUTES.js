@@ -10,6 +10,7 @@ import Adminroot from "../Pages/admin/Adminroot";
 import Contactadmin from "../Pages/admin/Contactadmin";
 import Main from "../Pages/admin/Main";
 import Emaill from "../Pages/admin/Emaill";
+import Bought from "../Pages/user/Bought";
 
 export const ROUTER = [
      {
@@ -43,7 +44,12 @@ export const ROUTER = [
                {
                     path:'detailpop/:id',
                     element:<Detailpop/>
+               },
+               {
+                    path:'bought',
+                    element:<Bought/>
                }
+               
           ]
      },
      {

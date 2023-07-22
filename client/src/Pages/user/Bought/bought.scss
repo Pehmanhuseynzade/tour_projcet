@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+
+    .div {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        // align-items: center;
+        .card-div {
+            width: 345px;
+            height: auto;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            // display: flex;
+
+            .img-div {
+                width: 345px;
+                height: 250px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+
+            .display {
+                display: flex;
+                gap: 126px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 24px;
+            }
+
+            .p-div-1 {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 18px;
+                width: 340px;
+                text-align: justify;
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+            .received {
+                font-size: 30px;
+                font-family: 'Montserrat', sans-serif;
+                color: red;
+                font-weight: 900;
+              }
+        }
+    }
+}

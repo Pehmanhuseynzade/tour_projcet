@@ -7,7 +7,7 @@ function Mainroot() {
     <>
     <Navbar/>
     <Outlet/>
-    <Footer/>
+    {/* <Footer/>  */}
     </>
   )
 }
