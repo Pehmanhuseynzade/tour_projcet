@@ -20,17 +20,18 @@ function Tours() {
     }
     function handleSort() {
         if (sort === true) {
-            setTour(tour.sort((x, y) => x.toursprice - y.toursprice));
+            setTour(tour.sort((x, y) => parseInt(x.toursprice)  -  parseInt(y.toursprice)));
             setSort(false);
         } else {
             setSort(true);
-            setTour(tour.sort((x, y) => y.toursprice - x.toursprice));
+            setTour(tour.sort((x, y) =>  parseInt(y.toursprice) -  parseInt(x.toursprice)));
         }
+        // setTour(tour);
     }
     return (
         <>
             <div className='countries-tours'>
-            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsfGVufDB8fDB8fHww&w=1000&q=80" alt="mainimage" />
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsfGVufDB8fDB8fHww&w=1000&q=80" alt="mainimage" />
                 <h1>Tours Page</h1>
             </div>
 
@@ -67,34 +68,34 @@ function Tours() {
             </div>
             <div className='tour-cards'>
                 {tour && tour.filter((item) => {
-              if (item === "") {
-                return tour;
-              } else if (
-                item.toursname
-                  .toLowerCase()
-                  .trim()
-                  .includes(input.toLowerCase().trim())
-              ) {
-                return item;
-              }
-              return null;
-            })
-            .map((tourdata) => (
-                    <div key={tourdata._id} className='my-card'>
-                        <Link to={`/detail/${tourdata._id}`} ><img src={tourdata.toursimg} alt="mycardimage" /></Link>
-                        <div className='overlay'></div>
-                        <div className='sale'>
-                        <Link to={`/detail/${tourdata._id}`}><h2 style={{color:"black"}}>{tourdata.toursname}</h2></Link>
-                            <h2 className='blue'><span>$</span>{tourdata.toursprice}</h2>
+                    if (item === "") {
+                        return tour;
+                    } else if (
+                        item.toursname
+                            .toLowerCase()
+                            .trim()
+                            .includes(input.toLowerCase().trim())
+                    ) {
+                        return item;
+                    }
+                    return null;
+                })
+                    .map((tourdata) => (
+                        <div key={tourdata._id} className='my-card'>
+                            <Link to={`/detail/${tourdata._id}`} ><img src={tourdata.toursimg} alt="mycardimage" /></Link>
+                            <div className='overlay'></div>
+                            <div className='sale'>
+                                <Link to={`/detail/${tourdata._id}`}><h2 style={{ color: "black" }}>{tourdata.toursname}</h2></Link>
+                                <h2 className='blue'><span>$</span>{tourdata.toursprice}</h2>
+                            </div>
+                            <p className='desc'>{tourdata.toursdesc}</p>
+                            <div className='statistic-icon'>
+                                <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><i class="fa-regular fa-calendar"></i><p>{tourdata.toursday}</p><span style={{ color: "gray" }}>days</span></div>
+                                <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><p>{tourdata.toursdate}</p></div>
+                                {/* <button style={{ marginLeft: 50 }} className='btn'>Order</button> */}
+                            </div>
                         </div>
-                        <p className='desc'>{tourdata.toursdesc}</p>
-                        <div className='statistic-icon'>
-                            <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><i class="fa-regular fa-calendar"></i><p>{tourdata.toursday}</p><span style={{ color: "gray" }}>days</span></div>
-                            <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}><p>{tourdata.toursdate}</p></div>
-                            {/* <button style={{ marginLeft: 50 }} className='btn'>Order</button> */}
-                        </div>
-                    </div>
-                ))}
+                    ))}
             </div>
         </>
     )

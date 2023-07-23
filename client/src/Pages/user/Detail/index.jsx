@@ -10,6 +10,9 @@ function Detail() {
   const [tour, setTour] = useState({});
   const params = useParams();
   const navigate = useNavigate();
+  const [cardNumber, setCardNumber] = useState("");
+  const [date, setDate] = useState("");
+  const [datecvv, setDateCvv] = useState("");
 
   const getData = async () => {
     const res = await axios.get(`http://localhost:7374/api/traveltour/${params.id}`);
@@ -56,6 +59,39 @@ function Detail() {
       // Handle the error
     }
   };
+  const formatCardNumber = (input) => {
+    const cardNumberWithoutSpaces = input.replace(/\s/g, "");
+
+    const formattedCardNumber = cardNumberWithoutSpaces.replace(
+      /(.{4})/g,
+      "$1 "
+    );
+
+    setCardNumber(formattedCardNumber);
+  };
+  const handleCardNumberChange = (e) => {
+    // Girilen değeri formatlamak için her karakter değişikliğinde formatCardNumber fonksiyonunu çağır
+    formatCardNumber(e.target.value);
+  };
+  const handleDateInput = (e) => {
+    const inputDate = e.target.value.replace(/\s/g, "");
+
+    if (inputDate.length > 5) {
+      // En fazla 4 karakter alıyoruz (MM/YY)
+      setDate(inputDate.slice(0, 5));
+    } else {
+      setDate(inputDate);
+    }
+  };
+  const handleDateInputCvv = (e) => {
+    const inputDate = e.target.value.replace(/\s/g, "");
+
+    if (inputDate.length > 3) {
+      setDateCvv(inputDate.slice(0, 3));
+    } else {
+      setDateCvv(inputDate);
+    }
+  };
 
   return (
     <>
@@ -86,10 +122,20 @@ function Detail() {
             <input placeholder="Last Name" style={{ width: 300, height: 35, paddingLeft: "10px", color: "gray" }} type="text" />
             <input placeholder="Email" style={{ width: 300, height: 35, paddingLeft: "10px", color: "gray" }} type="email" />
             <h2>Card Information</h2>
-            <input placeholder="Card Number" style={{ width: 300, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
+            <input placeholder="Card Number" style={{ width: 300, height: 30, paddingLeft: "10px", color: "gray" }} 
+            type="text"
+            onChange={handleCardNumberChange}
+              value={cardNumber} />
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <input placeholder="Date" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
-              <input placeholder="cvv" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
+              <input placeholder="Date" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }}
+               type="text"
+               onInput={handleDateInput}
+              value={date}
+              pattern="^(0[1-9]|1[0-2])\/\d{2}$" />
+              <input placeholder="cvv" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }} type="text" 
+              value={datecvv}
+              onInput={handleDateInputCvv}
+              pattern="^(0[1-9]|1[0-2])\/\d{2}$"/>
             </div>
             <input placeholder="Card Name" style={{ width: 300, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
             <button

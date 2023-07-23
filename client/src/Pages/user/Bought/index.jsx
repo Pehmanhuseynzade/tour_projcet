@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./bought.scss"
 import axios from 'axios'
 import { Button, Card } from 'antd';
+import Swal from "sweetalert2"
 const Bought = () => {
 
     const [data, setData] = useState([])
@@ -14,21 +15,46 @@ const Bought = () => {
     useEffect(() => {
         getData()
     }, [])
-    
-const { Meta } = Card;
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:7374/api/payment/${id}`);
+            setData((prevData) => prevData.filter((item) => item._id !== id));
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const showDeleteConfirm = (record) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleDelete(record._id);
+                Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+        });
+    };
     return (
         <>
             <div className='div' style={{ paddingTop: 150 }}>
                 {data.map((d) => (
                     <div className='card-div'>
-                        <img className='img-div' src={d.paymenttourImage} alt=''/>
+                        <img className='img-div' src={d.paymenttourImage} alt='' />
                         <div className='display'>
-                        <p className='p-div'>{d.paymenttourName}</p>
-                        <p className='p-div'>{d.paymenttourPrice}$</p>
+                            <p className='p-div'>{d.paymenttourName}</p>
+                            <p className='p-div'>{d.paymenttourPrice}$</p>
                         </div>
-                        <p className='p-div-1'>{d.paymenttourDesc}</p>
+                        <p className='p-div-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimentum egestas, libero dolor auctor tellus, eu consectetur neque elit quis nunc. Cras elementum pretium est.</p>
                         <div>
-                            <p className="received">Received</p>
+                            <button
+                                onClick={() => showDeleteConfirm(d)}
+                                className='btn'>Delete</button>
                         </div>
                     </div>
                     // <Card
