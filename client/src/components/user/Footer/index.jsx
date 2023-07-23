@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import Swal from "sweetalert2"
 import axios from 'axios';
 function Footer() {
   const formik = useFormik({
@@ -12,8 +13,15 @@ function Footer() {
       sendemail: Yup.string().email('Invalid email address').required('Required'),
     }),
     onSubmit: values => {
-      axios.post('http://localhost:7576/api/sendemail', values)
+      axios.post('http://localhost:7374/api/sendemail', values)
         .then(response => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your mail has been send',
+            showConfirmButton: false,
+            timer: 1500
+          })
           console.log('Post request successful');
           console.log(response.data);
           formik.resetForm();

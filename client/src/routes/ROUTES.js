@@ -11,6 +11,7 @@ import Contactadmin from "../Pages/admin/Contactadmin";
 import Main from "../Pages/admin/Main";
 import Emaill from "../Pages/admin/Emaill";
 import Bought from "../Pages/user/Bought";
+import Useinfo from "../Pages/admin/Useinfo";
 
 export const ROUTER = [
      {
@@ -67,7 +68,11 @@ export const ROUTER = [
               {
                   path:'sendemail',
                   element:<Emaill/>
-              }
+              },
+              {
+               path:'useinfo',
+               element:<Useinfo/>
+           }
           ] 
       }
 ]

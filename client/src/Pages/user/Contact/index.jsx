@@ -4,36 +4,42 @@ import { Link } from "react-router-dom"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import Swal from "sweetalert2"
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 function Contact() {
     const formik = useFormik({
         initialValues: {
-          formusername: '',
-          surname: '',
-          formemail: '',
-          messages: ''
+            formusername: '',
+            surname: '',
+            formemail: '',
+            messages: ''
         },
         validationSchema: Yup.object({
-          formusername: Yup.string()
-            .max(15, 'Must be 15 characters or less')
-            .required('Required'),
-          surname: Yup.string()
-            .max(20, 'Must be 20 characters or less')
-            .required('Required'),
-          formemail: Yup.string().email('Invalid email address').required('Required'),
-          messages: Yup.string().required('Required')
+            formusername: Yup.string()
+                .max(15, 'Must be 15 characters or less')
+                .required('Required'),
+            surname: Yup.string()
+                .max(20, 'Must be 20 characters or less')
+                .required('Required'),
+            formemail: Yup.string().email('Invalid email address').required('Required'),
+            messages: Yup.string().required('Required')
         }),
         onSubmit: values => {
-          axios.post('http://localhost:7576/api/contactus', values)
-            .then(response => {
-              console.log('Post request successful');
-              console.log(response.data);
-              formik.resetForm();
-            })
-            .catch(error => {
-              console.error('Post request error:', error);
-            });
+            axios.post('http://localhost:7374/api/contactus', values)
+                .then(response => {
+                    toast.success("Message sent Successfully!",{
+                        autoClose : 1500
+                    })
+                    console.log('Post request successful');
+                    console.log(response.data);
+                    formik.resetForm();
+                })
+                .catch(error => {
+                    console.error('Post request error:', error);
+                });
         },
-      });
+    });
     return (
         <>
             <div className='contact-count'>
@@ -105,6 +111,7 @@ function Contact() {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </>
     )
 }

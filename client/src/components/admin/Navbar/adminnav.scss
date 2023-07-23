@@ -1,10 +1,28 @@
-.navadmin{
-    background: linear-gradient(#331c00, #000000);
+.navadmin {
+    background: #4ECDC4;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #556270, #4ECDC4);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #556270, #4ECDC4);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 10px;
-    .hamburger{
+
+    .hamburger {
         color: white;
-        i{
+
+        i {
             font-size: 25px;
         }
     }
+}
+.list{
+    width: 100%;
+    height: 100vh;
+    background: #4ECDC4;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #556270, #4ECDC4);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #556270, #4ECDC4);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
 }

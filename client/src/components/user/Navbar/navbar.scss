@@ -22,11 +22,14 @@
       justify-content: center;
       align-items: center;
       gap: 20px;
-
+      transition: .5s;
       p {
         // color: rgba(0, 0, 0, 0.658);
         color: rgb(38, 76, 88);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        &:hover{
+          color: rgb(237, 54, 84);
+        }
       }
     }
   }

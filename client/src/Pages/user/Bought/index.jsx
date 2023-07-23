@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./bought.scss"
 import axios from 'axios'
-import { Button, Card } from 'antd';
 import Swal from "sweetalert2"
 const Bought = () => {
 

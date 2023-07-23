@@ -29,17 +29,23 @@ export default function Navbar() {
   };
 
   const list = (anchor) => (
-    <Box
+    <Box className='listt'
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List style={{ background: 'linear-gradient(#331c00, #000000)', color: 'white' }}>
+      <List className='list'>
         {[
           { text: 'Admin page', link: '/admin' },
           { text: 'Contact Us', link: '/admin/contactus' },
           { text: 'Emails', link: '/admin/sendemail' },
+          { text: 'Useful Infos', link: '/admin/useinfo' },
+          { text: 'Popular tours'},
+          { text: 'All Tours'},
+          { text: 'Payment'},
+
+
         ].map(({ text, link }) => (
           <ListItem key={text} disablePadding>
             <ListItemButton component="a" href={link}>

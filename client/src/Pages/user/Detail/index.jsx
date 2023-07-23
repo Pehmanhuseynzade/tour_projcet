@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "./detail.scss";
 import { toast, ToastContainer } from "react-toastify";
 import { Button } from "@mui/material";
+import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2"
 import axios from "axios";
 
@@ -32,7 +33,7 @@ function Detail() {
       paymenttourName: tour.toursname,
       paymenttourPrice: tour.toursprice,
       paymenttourDesc: tour.toursdesc,
-      paymenttourImage : tour.toursimg  
+      paymenttourImage: tour.toursimg
     };
 
     try {
@@ -40,12 +41,8 @@ function Detail() {
         "http://localhost:7374/api/payment",
         payment
       );
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Your work has been saved',
-        showConfirmButton: false,
-        timer: 1500
+      toast.success("Payment Successfully!", {
+        autoClose: 1500
       })
 
       setTimeout(() => {
@@ -122,20 +119,20 @@ function Detail() {
             <input placeholder="Last Name" style={{ width: 300, height: 35, paddingLeft: "10px", color: "gray" }} type="text" />
             <input placeholder="Email" style={{ width: 300, height: 35, paddingLeft: "10px", color: "gray" }} type="email" />
             <h2>Card Information</h2>
-            <input placeholder="Card Number" style={{ width: 300, height: 30, paddingLeft: "10px", color: "gray" }} 
-            type="text"
-            onChange={handleCardNumberChange}
+            <input placeholder="Card Number" style={{ width: 300, height: 30, paddingLeft: "10px", color: "gray" }}
+              type="text"
+              onChange={handleCardNumberChange}
               value={cardNumber} />
             <div style={{ display: "flex", justifyContent: "center" }}>
               <input placeholder="Date" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }}
-               type="text"
-               onInput={handleDateInput}
-              value={date}
-              pattern="^(0[1-9]|1[0-2])\/\d{2}$" />
-              <input placeholder="cvv" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }} type="text" 
-              value={datecvv}
-              onInput={handleDateInputCvv}
-              pattern="^(0[1-9]|1[0-2])\/\d{2}$"/>
+                type="text"
+                onInput={handleDateInput}
+                value={date}
+                pattern="^(0[1-9]|1[0-2])\/\d{2}$" />
+              <input placeholder="cvv" style={{ width: 150, height: 30, paddingLeft: "10px", color: "gray" }} type="text"
+                value={datecvv}
+                onInput={handleDateInputCvv}
+                pattern="^(0[1-9]|1[0-2])\/\d{2}$" />
             </div>
             <input placeholder="Card Name" style={{ width: 300, height: 30, paddingLeft: "10px", color: "gray" }} type="text" />
             <button
@@ -144,7 +141,7 @@ function Detail() {
           </form>
         </div>
       </div>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </>
   )
 }
